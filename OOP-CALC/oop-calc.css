@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: rgb(15, 161, 223);
+}
+
+body>h1 {
+    color: purple;
+}
+
+.numbers {
+    padding: 1.2rem;
+    margin: 0.2rem;
+    border-radius: 20px;
+    background-color: aqua;
+    color: black;
+}
+
+.operators,
+.clearEntry,
+.delete {
+    padding: 1.2rem;
+    margin: 0.2rem;
+    border-radius: 20px;
+    background-color: #dd0eb0;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+
+.calc-display {
+    border: solid 3px violet;
+    width: 20vw;
+    height: 20vh;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    font-size: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    padding: 0.5rem;
+}
+
+.answer {
+    padding: 1.2rem;
+    margin: 0.1rem;
+    border-radius: 20px;
+    background-color: red;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    width: 100px;
+}
+
+.calc-body {
+    border: solid 3px limegreen;
+    height: 70vh;
+    width: 20vw;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.7rem;
+    background-color: salmon;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.calc-body .calc-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0.5rem;
+    gap: 10px;
+    width: 90%;
+    height: 70%;
+}
+
+@media screen and (max-width: 900px) {
+    .body {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .calc-display {
+        flex-wrap: wrap;
+        height: 20%;
+        width: 50%;
+    }
+
+    .calc-body {
+        flex-direction: column;
+        height: 70%;
+        width: 50%;
+    }
+
+   .calc-body .calc-content {
+        height: 1%;
+        width: 90%;
+        /* border: 1px solid aqua; */
+        padding-top:50px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .numbers,
+    .operators,
+    .clearEntry,
+    .delete {
+        height: 2%;
+        width: 5%;
+        border-radius: 10%;
+        margin-top: -30px;
+    }
+
+ .calc-content .answer {
+        height: 2%;
+        width: 25%;
+        border-radius: 10%;
+        margin-top: -30px;
+
+    } 
+
+}
