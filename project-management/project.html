@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Management Dashboard</title>
+    <link rel="stylesheet" href="project.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="navbar">
+        <div class="logo">Project Management Dashboard</div>
+        <button id="logoutbtn">Logout</button>
+    </div>
+      <!-- my main content starts here -->
+      
+        <div class="form-container">
+          <form class="createproject">
+            <label for="name">Project Name:</label>
+            <input type="text" placeholder="Input project name" id="name" />
+
+            <label for="description">Project Description:</label>
+            <input
+              type="text"
+              placeholder="Input description"
+              id="description"
+            />
+
+            <label for="task-status">Task Status:</label>
+            <select name="task-status" id="task-status">
+                <option value="">choose status</option>
+              <option value="done">Done</option>
+              <option value="pending">Pending</option>
+            </select>
+            <label for="submit-button"></label>
+            <button type="submit" id="createtaskbtn" id="submit-button">Submit</button>
+          </form>
+        </div>
+
+        <table class="projects" style="margin-top: 20px">
+          <tr class="tableheading">
+            <th>No.</th>
+            <th>projectname</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </table>
+      
+      <!-- main content ends here -->
+    </main>
+    <script src="./dist/project.js"></script>
+  </body>
+</html>
