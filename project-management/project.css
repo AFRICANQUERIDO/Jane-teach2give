@@ -1,14 +1,16 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-main {
+body {
     background: linear-gradient(hsl(203, 89%, 53%), hsl(250, 100%, 66%));
     max-width: 100%;
     max-height: 100%;
-    height: 100vh;
-    border: 1px solid blue;
+    /* height: 100vh;
+    width: 100vw; */
+    /* border: 1px solid blue; */
 }
 
 .navbar {
@@ -34,35 +36,81 @@ main {
 #logoutbtn:hover {
     color: white;
 }
-
-.createproject {
-    width: 50vw;
+#toggleform{
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.createprojectform {
+    height: 70%;
     max-width: 500px;
+    width:50vw;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding: 20px 10px;
     background-color: #6ea0e2;
     border-radius: 10px;
     min-width: 250px;
-    gap: 20px;
+    /* gap:10px; */
 }
 
-.createproject>input {
-    width: 22vw;
-    padding: 5px;
-    min-width: 240px;
-}
 
-#createtaskbtn {
-    /* width: 95%; */
-    background-color: #0c63dd;
+.col-25 {
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 80%;
+    margin-top: 6px;
+  }
+  
+
+input[type =text], input[type = date], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+
+#submit-btn {
+    width: 95%;
+    background-color:  #0c63dd;
     border: none;
     color: white;
-    padding: 10px;
-    border-radius: 20px;
-    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
 
 }
 
@@ -71,17 +119,19 @@ main {
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
-    width: 70vw;
-    height: 60vh;
     border-bottom-left-radius: 10px;
-
+    padding: 20px;
+    
+    /* border: 1px solid red; */
 }
 
 
 table {
-    font-family: arial, sans-serif;
+    font-family: Verdana, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    /* height: 100%; */
+    /* display: flex; */
 }
 
 td,
@@ -89,4 +139,12 @@ th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+#delete ,#update{
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }

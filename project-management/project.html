@@ -8,47 +8,72 @@
   </head>
 
   <body>
-    <main>
-      <div class="navbar">
-        <div class="logo">Project Management Dashboard</div>
-        <button id="logoutbtn">Logout</button>
+    <div class="navbar">
+      <div class="logo">Project Management Dashboard</div>
+      <button id="logoutbtn">Logout</button>
     </div>
-      <!-- my main content starts here -->
-      
-        <div class="form-container">
-          <form class="createproject">
-            <label for="name">Project Name:</label>
-            <input type="text" placeholder="Input project name" id="name" />
+    <hr />
+    <!-- my main content starts here -->
 
-            <label for="description">Project Description:</label>
-            <input
-              type="text"
-              placeholder="Input description"
-              id="description"
-            />
-
-            <label for="task-status">Task Status:</label>
-            <select name="task-status" id="task-status">
-                <option value="">choose status</option>
-              <option value="done">Done</option>
-              <option value="pending">Pending</option>
-            </select>
-            <label for="submit-button"></label>
-            <button type="submit" id="createtaskbtn" id="submit-button">Submit</button>
-          </form>
+    <div class="form-container">
+      <form class="createprojectform" style="display: none">
+        <div class="col-25">
+          <label for="name">Project Name:</label>
         </div>
+        <div class="col-75">
+          <input type="text" placeholder="Input project name" id="project_name" />
+        </div>
+        <div class="col-25">
+          <label for="start date">Project Start Date:</label>
+        </div>
+        <div class="col-75">
+          <input type="date" placeholder="project date" id="project_datestart"/>
+        </div>
+        <div class="col-25">
+          <label for="end date">Project End Date:</label>
+        </div>
+        <div class="col-75">
+          <input type="date" placeholder="project date" id="project_dateend"/>
+        </div>
+        <div class="col-25">
+          <label for="task-status">Task Status:</label>
+        </div>
+        
+        <div class="col-75">
+          <select name="task-status" id="task-status">
+            <option value="">--choose status--</option>
+            <option value="done">Done</option>
+            <option value="pending">Pending</option>
+          </select>
+        </div>
+        <div class="col-25">
+          <label for="description">Project Description:</label>
+        </div>
+        <div class="col-75">
+          <textarea type="text" id="description" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+        <div class="col-25">
+          <label for="submit-button"></label>
+        </div>
+        <div class="col-75">
+          <button type="submit" id="submit-btn">Submit</button></div>
+        </form>
+      <button id="toggleform">Add Task</button>
+    </div>
 
-        <table class="projects" style="margin-top: 20px">
-          <tr class="tableheading">
-            <th>No.</th>
-            <th>projectname</th>
-            <th>Description</th>
-            <th>Status</th>
-          </tr>
-        </table>
-      
-      <!-- main content ends here -->
-    </main>
-    <script src="./dist/project.js"></script>
+    <table class="projects" style="margin-top: 20px">
+      <tr class="tableheading">
+        <th>No.</th>
+        <th>projectname</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+      </tr>
+    </table>
+
+    <!-- main content ends here -->
+
+    <script src="./dist/index.js"></script>
   </body>
 </html>
