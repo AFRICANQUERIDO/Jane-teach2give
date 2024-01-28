@@ -1,0 +1,327 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    /* max-width: 100%;
+    max-height: 100%; */
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(hsl(203, 89%, 53%), hsl(250, 100%, 66%));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Styling navbar */
+.navbar {
+    width: 80vw;
+    height: 10vh;
+    background-color: hsl(250, 60%, 98%);
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: hsl(203, 89%, 53%);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom: 1px solid hsl(250, 77%, 75%);
+}
+
+.title-message {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 60%;
+    text-shadow: 2px 2px 4px #df5a12;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.profile > img {
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+    border: 1px solid aqua;
+    cursor: pointer;
+}
+
+.admin-name {
+    display: none;
+    color: hwb(203 11% 5%);
+    font-weight: bold;
+}
+
+.rotate-360 {
+    transform: rotate(360deg);
+}
+
+#adm-btn {
+    background-color: hsl(250, 60%, 98%);
+    border: none;
+    color: #893a08;
+    padding: 5px;
+    border-radius: 10px;
+    width: 80px;
+    height: 30px;
+}
+
+#adm-btn:hover {
+    background-color: #ad082e;
+    color: white;
+    transition: width 0.5s, height 0.5s, color 0.5s;
+    cursor: pointer;
+}
+
+/* Styling the content admin page */
+.content {
+    background-color: hsl(250, 60%, 98%);
+    width: 80vw;
+    height: 80vh;
+    max-width: 100%;
+    max-height: 100%;
+    border-bottom-left-radius: 10px;
+}
+
+.create {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+width:  100%;
+   
+}
+
+.toggle {
+    background: linear-gradient(hsl(203, 89%, 53%), hsl(250, 100%, 66%));
+    border: 1px solid hsl(250, 100%, 66%);
+    border-radius: 10px;
+    height: 100%;
+    width: 15%;
+}
+
+/* Style for create button */
+#create-btn {
+    background-color: #df5a12;
+    color: white;
+    height: 50px;
+    width: 80px;
+    padding: 20px;
+    margin: 20px 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+#create-btn:hover {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #df5a12;
+    cursor: pointer;
+}
+
+/* Style for table form content */
+#table {
+    border-collapse: collapse;
+    width: 100%;
+    display: none;
+    height: 40%;
+    padding: 20px;
+}
+
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+}
+
+th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+    background-color: hsl(0, 0%, 100%);
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+    color: black;
+    font-weight: 800;
+}
+
+td input {
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+}
+
+tr:hover {
+    background-color: hsl(203, 89%, 53%);
+}
+
+.col-25 {
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 80%;
+    margin-top: 6px;
+}
+.create-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 270px 10px ;
+    border-radius: 10px;
+    height: 30%;
+   width: 50%;
+   bottom: 1px solid green;
+}
+
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    /* margin: 8px 0; */
+}
+textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    height: 20px;
+    word-wrap: break-word
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+#submit-btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+      margin-top: 10px;
+      width: 100%;
+}
+
+#submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Styles for the Edit button */
+.edit-btn,
+
+#add-btn,
+#view-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#edit-btn:hover {
+    background-color: #036808;
+}
+
+#delete-btn:hover,
+#add-btn:hover,
+#view-btn:hover {
+    background-color: #750606;
+}
+
+.delete-btn{
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Styling the items wrapper container */
+.items-wrapper {
+    height: 90vh; 
+    width: 100vw;
+    /* background-color: hsl(203, 89%, 53%); */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    /* flex-direction: column; */
+    /* display: none; */
+}
+
+.items {
+    background-color: hsl(0,0%,97%);
+    border: 1px solid #893a08;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    width: 20%;
+    padding: 20px;
+    gap: 20px;
+}
+
+.items img {
+    width: 180px;
+    height: 180px;
+}
+
+h3,
+h4,
+p {
+    color: #df5a12;
+}
+
+h3:hover,
+h4:hover,
+p:hover {
+    color: black;
+}
+
+.items:hover {
+    background-color: #b5e3e3
+}
