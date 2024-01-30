@@ -1,4 +1,15 @@
 "use strict";
+let items = [];
+function saveToLocalStorage() {
+    localStorage.setItem("items", JSON.stringify(items));
+}
+function loadItemsFromLocalStorage() {
+    const storedItems = localStorage.getItem("items");
+    if (storedItems) {
+        items = JSON.parse(storedItems);
+        console.log("Items loaded:", items);
+    }
+}
 // Variable to store the current index
 let currentindex;
 // DOM elements
@@ -12,8 +23,6 @@ let description = document.getElementById("item-description");
 let profile = document.querySelector("#profile");
 let profileImg = document.querySelector("#profile-img");
 let adminName = document.querySelector("#admin-name");
-// Array to store items
-let items = [];
 // Adding event listeners
 profileImg.addEventListener("mouseover", function () {
     profileImg.classList.add("rotate-360");
@@ -51,17 +60,16 @@ function displayItems() {
             </div>
         `;
         itemsContainer === null || itemsContainer === void 0 ? void 0 : itemsContainer.appendChild(itemDiv);
-        let submitBtn = document.querySelector("#submit-btn");
-        submitBtn.addEventListener("click", () => {
-            if (itemsContainer.style.display === "flex") {
-                itemsContainer.style.display = "none";
-                createItems.style.display = "flex";
-            }
-            else {
-                itemsContainer.style.display = "flex";
-                createItems.style.display = "none";
-            }
-        });
+        // let submitBtn = document.querySelector("#submit-btn") as HTMLButtonElement;
+        // submitBtn.addEventListener("click", () => {
+        //     if (itemsContainer.style.display === "flex") {
+        //         itemsContainer.style.display = "none";
+        //         createItems.style.display = "flex";
+        //     } else {
+        //         itemsContainer.style.display = "flex";
+        //         createItems.style.display = "none";
+        //     }
+        // });
     });
 }
 // Function to delete an item
@@ -81,10 +89,6 @@ function updateItem(index) {
         thumbnail.value = selectedItem.thumbnail;
         priceItem.value = selectedItem.priceItem;
     }
-}
-// Function to save items to local storage
-function saveToLocalStorage() {
-    localStorage.setItem("items", JSON.stringify(items));
 }
 // Load existing items from local storage on page load
 document.addEventListener("DOMContentLoaded", () => {
@@ -135,4 +139,10 @@ if (createBtn) {
                 createItems.style.display === "none" ? "flex" : "none";
         }
     });
+    // let viewitemsBtn = document.querySelector("#viewitems-btn") as HTMLButtonElement;
+    // if(viewitemsBtn){
+    //     viewitemsBtn.addEventListener("click",()=>{
+    //     itemscontainer?.style.display ="flex";
+    //     })
+    // }
 }

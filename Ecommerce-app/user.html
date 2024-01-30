@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home page</title>
+  <link rel="stylesheet" href="shein-style.css">
+</head>
+
+<body>
+  <div class="user-navbar">
+
+    <div class="usertitle">
+      <div id="utitle">AQ thrifts</div>
+      <h3>Welcome to User Page</h3>
+      <p>Click <a href="shein-admin.html">here</a> to visit the Admin Page.</p>
+    </div>
+
+    <div class="userprofile" id="userprofile">
+      <img
+        src="https://media.istockphoto.com/id/1296857178/photo/3d-illustration-of-standing-african-american-woman-with-arms-crossed-portrait-of-smiling.jpg?s=612x612&w=0&k=20&c=d-pCQf5-UhcSQ8_hUpNZUaNXuk7j8prjiiw8AwNms4k="
+        alt=" Profile" id="profile-img">
+      <div class="user-name" id="user-name">Miss Ngene</div>
+      <button id="adm-btn">logout</button>
+      <button class="cart-button">
+        <span class="add-top-cart">Cart</span>
+        <!-- <span class="added">Added</span> -->
+        <ion-icon name="cart" id="cart"></ion-icon>
+      </button>
+    </div>
+  </div>
+  <!-- Navbar ends here -->
+  <div class="usermain">
+    <!-- Items display here -->
+    <div class="items-wrapper">
+
+    </div>
+    <div class="cart">
+      <h2>Your Cart</h2>
+      <table class="cart-items" id="cart-items">
+        <!-- Cart items will be displayed here -->
+      </table>
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+      <!--  Cart items container starts here -->
+    </div>
+  </div>
+
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="./dist/user.js"></script>
+  <script src="./dist/common.js"></script>
+</body>
+
+</html>

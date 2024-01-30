@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Shein website</title>
+  <link rel="stylesheet" href="shein-style.css" />
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <!-- Navbar starts here -->
+      <div class="navbar">
+
+        <div class="title-message">
+          <div id="title">AQ thrifts</div>
+          <h3>Welcome! Admin</h3>
+          <p>Click <a href="user.html">here</a> to visit the User Page.</p>
+        </div>
+
+        <div class="profile" id="profile">
+          <img
+            src="https://media.istockphoto.com/id/1296857178/photo/3d-illustration-of-standing-african-american-woman-with-arms-crossed-portrait-of-smiling.jpg?s=612x612&w=0&k=20&c=d-pCQf5-UhcSQ8_hUpNZUaNXuk7j8prjiiw8AwNms4k="
+            alt="Admin Profile" id="profile-img">
+          <div class="admin-name" id="admin-name">Miss Ngene</div>
+          <button id="adm-btn">logout</button>
+        </div>
+      </div>
+      <!-- Navbar ends here -->
+      <!-- main content starts here -->
+      <div class="content">
+        <div class="create">
+          <div class="toggle">
+            <button id="create-btn">Create</button>
+            <button id="viewitems-btn">Orders</button>
+          </div>
+
+          <form class="create-items" style="display: none">
+            <div class="col-25">
+              <label for="name">Item Name:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Input item name" id="item-name" />
+            </div>
+
+            <div class="col-25">
+              <label for="price">Price:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter price" id="item-price" />
+            </div>
+            <div class="col-25">
+              <label for="Thumbnail">Thumbnail:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" placeholder="Enter item thumbail" id="thumbnail-item" />
+            </div>
+            <div class="col-25">
+              <label for="Category">Item Category:</label>
+            </div>
+
+            <div class="col-75">
+              <select name="Category" id="Category">
+                <option value="">--choose category--</option>
+                <option value="clo">clothes</option>
+                <option value="shoes">shoes</option>
+                <option value="sweater">sweater</option>
+                <option value="jewellery">jewellery</option>
+              </select>
+            </div>
+            <div class="col-25">
+              <label for="description">Item Description:</label>
+            </div>
+            <div class="col-75">
+              <textarea type="text" id="item-description" placeholder="Write description here.."></textarea>
+            </div>
+            <!-- <div class="col-25">
+              <label for="submit-button"></label>
+            </div> -->
+            <div class="col-75">
+              <button type="submit" id="submit-btn">Submit</button>
+            </div>
+          </form>
+          <div class="items-wrapper"></div>
+        </div>
+
+        <!-- <table id="stock-items">
+                            <tr>
+                                <th>Name</th>
+                                <th>Thumbnail</th>
+                                <th>Price</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </table> -->
+        <!-- form ends here -->
+
+        <!-- main content ends here -->
+        <!-- <div class="items-wrapper"></div> -->
+          <!-- <div class="items">
+                        <div class="image">
+                            <img src="https://img.ltwebstatic.com/images3_pi/2023/05/31/1685497487de7ea5a5a833d2125143e98a9b327eb5_thumbnail_900x.webp"
+                                alt="sweater" />
+                        </div>
+                        <h3 id="title">Sweater</h3>
+                        <h4 id="price"> Ksh.500 </h4>
+                        <p id="description">This is the best sweater thus far</p>
+                        <div class="actions">
+                            <button class="edit-btn" data-index="0">Edit</button>
+                            <button class="delete-btn" data-index="0">Delete</button>
+
+                        </div>
+                    </div> -->
+        
+      </div>
+    </div>
+    <div id="orders"></div>
+  </main>
+  <script src="./dist/shein.js"></script>
+  <script defer src="./dist/common.js"></script>
+</body>
+
+</html>
