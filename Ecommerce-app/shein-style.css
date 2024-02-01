@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 main {
@@ -27,7 +28,7 @@ main {
 
 /* Styling navbar */
 .navbar {
-    width: 80vw;
+    width: 98vw;
     height: 10vh;
     background-color: hsl(250, 60%, 98%);
     display: flex;
@@ -118,7 +119,7 @@ main {
 /* Styling the content admin page */
 .content {
     background-color: hsl(250, 60%, 98%);
-    width: 80vw;
+    width: 98vw;
     height: 80vh;
     max-width: 100%;
     max-height: 100%;
@@ -139,6 +140,10 @@ main {
     border-radius: 10px;
     height: 100%;
     width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 /* Style for create button */
@@ -410,29 +415,38 @@ flex-direction: column;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    border: 1px solid #df5a12;
+    /* border: 2px solid blue; */
     background: linear-gradient(hsl(160, 6%, 81%), hsl(0, 0%, 97%));
+    /* width: 80vh; */
+
 }
-/* .cart-items{
+/* 
+.cart-items{
     display: flex; 
     flex-direction:column;
+    border: 1px solid #df5a12;
 }  */
 /* .cart-item{
     border: 1px solid hsl(203, 89%, 53%);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border: 1px solid #df5a12;
+    display: flex; */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap;
+    border: 1px solid #df5a12; */
     /* width: 40px;
     height: 50px; */
     
-/* } */ */
+ /* }  */
 
-
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 /* Styling navbar */
 .user-navbar {
-    width: 100vw;
-    height: 10vh;
+    width: 98vw;
+    overflow-x: hidden;
+    height: 20vh;
     background-color: hsl(250, 60%, 98%);
     display: flex;
     justify-content: space-between;
@@ -459,6 +473,7 @@ flex-direction: column;
     color: hsl(203, 89%, 53%);
     font-weight: 800;
     font-size: large;
+    display: flex;
 }
 .usertitle >p {
     font-size: 10px;
@@ -466,23 +481,31 @@ flex-direction: column;
     width: 60%;
     text-shadow: 2px 2px 4px black;
 }
-
+.usertitle{
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid aqua; */
+    width: 80%;
+}
 .usertitle >h3 {
     font-size: 30px;
     /* padding: 20px; */
     /* width: 40%; */
     text-shadow: 2px 2px 4px #df5a12;
 }
-
+.welcome>h3, .welcome>p{
+    color: #61daff;
+}
 .userprofile {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 10px;
     padding: 20px;
     border-radius: 10px;
-    background-color: #036808;
-    /* width: 50vh; */
+    /* background-color: #036808; */
+ width: 100vh;
+ padding: 0%;
 } 
 
 .userprofile :hover {
@@ -507,6 +530,35 @@ flex-direction: column;
     border: linear-gradient(to bottom, #61daff, #656bff);
 } */
 
+.cart-button{
+    height: 40px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 5px; */
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+}
+ion-icon{
+    /* border: 2px solid blue; */
+    height: 40px;
+    width: 30px;
+}
+
+.count{
+    position: relative;
+    top: -8px;
+    color: white;
+    background-color: #750606;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .checkout-btn {
     border: none;
     background-color: linear-gradient((#61daff), (#656bff));
@@ -518,5 +570,4 @@ flex-direction: column;
 .checkout-btn:hover {
     background-color: green;
     border: none;
-    color: white;
-}
+    color: white;}
