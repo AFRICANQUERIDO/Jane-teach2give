@@ -1,6 +1,8 @@
 let submitBtn = document.querySelector("#note-save") as HTMLButtonElement;
 let newNote = document.querySelector(".new-note") as HTMLDivElement;
 let noteContainer = document.querySelector(".note-container") as HTMLDivElement;
+let nameItem = document.querySelector("#note-title") as HTMLInputElement;
+let description = document.querySelector("#note-area") as HTMLInputElement;
 
 // Toggle using submit btn
 if (submitBtn && newNote && noteContainer) {
@@ -55,7 +57,6 @@ function loadNotesFromLocalStorage() {
 }
 
 let currentindex: number;
-
 function displayNotes() {
     if (noteContainer !== null) {
         noteContainer.innerHTML = "";
@@ -71,10 +72,9 @@ function displayNotes() {
         noteDiv.innerHTML = `
             <h3 class="note-title">${note.nameItem}</h3>
             <p>${note.description}.</p>
-            </div>
             <div class="actions">
-                <button class="edit-btn" data-index="${index}" onclick="updateNote(${index})">Edit</button>
-                <button class="delete-btn" data-index="${index}" onclick="deleteNote(${index})">Delete</button>
+                <button class="edit-btn" data-index="${index}">Edit</button>
+                <button class="delete-btn" data-index="${index}">Delete</button>
             </div>
         `;
 
@@ -82,6 +82,18 @@ function displayNotes() {
     });
 }
 
+// Event delegation for edit and delete buttons
+noteContainer?.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+
+    if (target.classList.contains("edit-btn")) {
+        const index = parseInt(target.dataset.index || "0", 10);
+        updateNote(index);
+    } else if (target.classList.contains("delete-btn")) {
+        const index = parseInt(target.dataset.index || "0", 10);
+        deleteNote(index);
+    }
+});
 function deleteNote(index: number) {
     notes.splice(index, 1);
     displayNotes();
@@ -94,9 +106,7 @@ function updateNote(index: number) {
 
     let selectedItem = notes[index];
 
-    // Assuming nameItem and description are the IDs of your input fields
-    let nameItem = document.querySelector("#nameItem") as HTMLInputElement;
-    let description = document.querySelector("#description") as HTMLInputElement;
+
 
     if (nameItem && description) {
         nameItem.value = selectedItem.nameItem;
@@ -108,3 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
     loadNotesFromLocalStorage();
     displayNotes();
 });
+
+
+
+
+
+// ... (previous code)
+
+
+
+// ... (rest of the code)

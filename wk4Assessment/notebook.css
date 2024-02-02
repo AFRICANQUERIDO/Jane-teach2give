@@ -69,6 +69,7 @@ ion-icon {
 }
 .note-title {
     color: hsl(214, 8%, 62%);
+    /* border: none; */
 }
 
 .note>p {
@@ -98,11 +99,15 @@ form {
     padding: 20px;
 }
 
-form>input[type="text"] {
+form >textarea{
+    margin-top: 10px;
     width: 30vw;
     height: 40vh;
-    /* padding: 20px; */
 }
+form>input[type="text"] {
+    padding: 10px;
+    border: none;
+} 
 
 form>input[type="submit"] {
     width: 70px;
