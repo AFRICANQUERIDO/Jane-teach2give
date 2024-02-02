@@ -4,10 +4,29 @@ let newNote = document.querySelector(".new-note");
 let noteContainer = document.querySelector(".note-container");
 let nameItem = document.querySelector("#note-title");
 let description = document.querySelector("#note-area");
+let noteForm = document.querySelector('#note-form');
+let notes = [];
+// Handle form submission
+noteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isValid = nameItem.value.trim() != "" && description.value.trim() != "";
+    if (isValid) {
+        let newNote = {
+            id: notes.length + 1,
+            nameItem: nameItem.value.trim(),
+            description: description.value.trim()
+        };
+        notes.push(newNote);
+        saveToLocalStorage();
+        displayNotes();
+    }
+    else {
+        alert("Please fill all the fields");
+    }
+});
 // Toggle using submit btn
 if (submitBtn && newNote && noteContainer) {
-    submitBtn.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent the default form submission
+    submitBtn.addEventListener("click", () => {
         // Toggle the visibility of newNote and noteContainer
         if (newNote.style.display === "flex") {
             newNote.style.display = "none";
@@ -34,15 +53,19 @@ if (addBtn && newNote && noteContainer) {
         }
     });
 }
-let notes = [];
 function saveToLocalStorage() {
     localStorage.setItem("notes", JSON.stringify(notes));
 }
 function loadNotesFromLocalStorage() {
     const storedItems = localStorage.getItem("notes");
     if (storedItems) {
-        notes = JSON.parse(storedItems);
-        console.log("Notes loaded:", notes);
+        let data = JSON.parse(storedItems);
+        data.forEach((note) => {
+            notes.push(note);
+        });
+    }
+    else {
+        console.log("No notes");
     }
 }
 let currentindex;
@@ -58,18 +81,23 @@ function displayNotes() {
         let noteDiv = document.createElement('div');
         noteDiv.className = "note";
         noteDiv.innerHTML = `
-            <h3 class="note-title">${note.nameItem}</h3>
+        <div class="note-title">
+        <h1>${note.nameItem}</h1>
+        </div>
+        <div class="note-content">
             <p>${note.description}.</p>
+            </div>
             <div class="actions">
                 <button class="edit-btn" data-index="${index}">Edit</button>
                 <button class="delete-btn" data-index="${index}">Delete</button>
             </div>
+            
         `;
-        noteContainer === null || noteContainer === void 0 ? void 0 : noteContainer.appendChild(noteDiv);
+        noteContainer.appendChild(noteDiv);
     });
 }
 // Event delegation for edit and delete buttons
-noteContainer === null || noteContainer === void 0 ? void 0 : noteContainer.addEventListener("click", (event) => {
+noteContainer.addEventListener("click", (event) => {
     const target = event.target;
     if (target.classList.contains("edit-btn")) {
         const index = parseInt(target.dataset.index || "0", 10);
@@ -81,6 +109,10 @@ noteContainer === null || noteContainer === void 0 ? void 0 : noteContainer.addE
     }
 });
 function deleteNote(index) {
+    let confirmDelete = window.confirm("Are you sure you want to delete this task?");
+    if (confirmDelete) {
+        deleteNote(index);
+    }
     notes.splice(index, 1);
     displayNotes();
     saveToLocalStorage();
@@ -98,5 +130,3 @@ document.addEventListener("DOMContentLoaded", () => {
     loadNotesFromLocalStorage();
     displayNotes();
 });
-// ... (previous code)
-// ... (rest of the code)

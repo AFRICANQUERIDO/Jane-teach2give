@@ -6,7 +6,7 @@
 
 body {
     background-color: hsl(252, 5%, 80%);
-
+    font-family: Courier, sans-serif;
 }
 
 .navbar {
@@ -17,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 50%;
+    overflow: hidden;
 }
 
 
@@ -24,69 +25,188 @@ body {
     color: white;
 }
 
+
+
 /* Style the search box inside the navigation bar */
-#navbar input[type=text] {
-    /* float: right; */
-    padding: 6px;
-    border: none;
-    width: 20px;
-    /* margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px; */
+.navbar .search-div {
+    float: right;
 }
-
-ion-icon {
-    color: white;
-    background-color: black;
-}
-
-.search-div {
-    background-color: white;
+.search-container {
     display: flex;
-    width: 10%;
-    height: 40%;
+    align-items: center;
 }
+  
+  .navbar input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    flex: 1;
+  }
 
+.navbar .search-div button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .navbar .search-div button:hover {
+    background: hsl(252, 5%, 80%);
+  }
+  
 .container {
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: max-content;
+    min-height: 90vh;
+    /* padding: 20px; */
 }
 
 .note-container {
-    width: 40%;
-    height: 90%;
-    background-color: white;
+    /* width: 70%; */
+    /* background-color: white; */
     display: none;
-    /* display: grid;
-    grid-template-columns: repeat(2); */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px;
+    padding-top:70px ;
+    gap: 20px;
+    /* position: relative; */
 }
-.note{
-    width: 20%;
-    height: 30%;
+
+.note {
+    width: 100%;
+    height: 100%;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: white;
+    text-align: center;
+    gap: 20px;
+
 }
+
 .note-title {
-    color: hsl(214, 8%, 62%);
-    /* border: none; */
-}
 
-.note>p {
     color: hsl(214, 8%, 62%);
+    display: flex;
+    justify-content: space-between;
+    overflow-wrap: break-word;
 }
-
+.note-title>h1{
+    font-size: 20px;
+    padding: 5px;
+    margin: 0;
+}
+.note-content {
+    background: linear-gradient( hsl(287,34%,46%),hsl(287, 61%, 55%));
+    color: hsl(214, 8%, 62%);
+    background-color: white;
+    height: 150px;
+    padding: 10px;
+    /* overflow-y: scroll;
+    overflow-wrap: break-word; */
+  }
+  .note-content>p{
+    color: hsl(252, 5%, 80%);
+  }
+  
+  .actions{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border:1px solid aqua; */
+    width: 100%;
+  }
 #add-btn {
     background-color: hsl(285, 42%, 39%);
     border-radius: 50%;
+    color: white;
+    bottom: 5px;
+    right: 5px;
+    padding: 10px;
+}
+#add-btn:hover {
+    background-color: hsl(287, 61%, 55%);
 }
 
+.edit-btn {
+    /* background-color: hsl(285, 42%, 39%); */
+    border-radius: 5%;
+    border: none;
+    background-color: white;
+    padding: 5px;
+    color: hsl(214, 8%, 62%);
+    width: 50px;
+    height: 30px;
+}
+
+.delete-btn {
+    /* background-color: hsl(285, 42%, 39%); */
+    border-radius: 5%;
+    border: none;
+    color: hsl(214, 8%, 62%);
+    background-color: white;
+    padding: 5px;
+    width: 50px;
+    height: 30px;
+}
+.delete-btn:hover{
+    background-color: hsl(287, 61%, 55%);
+cursor: pointer;
+}
+.edit-btn:hover{
+    background-color: hsl(287, 61%, 55%);
+cursor: pointer;
+}
+
+/* media query responsiveness */
+@media only screen and (max-width: 1000px){
+    .note-container {
+        grid-template-columns: auto;
+    }
+    .navbar{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .new-note{
+        width: 70%;
+    }
+    form>textarea {
+        width: 50vw;
+        height: 20vh;
+    }
+    form>input[type="text"] {
+        padding: 10px;
+        border: none;
+        width: 40%;
+    }
+    .search-div{
+        width: 30%;
+    }
+}
 .new-note {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: white;
+    display: none;
     /* border: 1px solid red; */
 }
 
@@ -99,15 +219,16 @@ form {
     padding: 20px;
 }
 
-form >textarea{
+form>textarea {
     margin-top: 10px;
     width: 30vw;
     height: 40vh;
 }
+
 form>input[type="text"] {
     padding: 10px;
     border: none;
-} 
+}
 
 form>input[type="submit"] {
     width: 70px;
@@ -118,6 +239,7 @@ form>input[type="submit"] {
     margin: 20px;
     height: 40px;
 }
-form>input[type="submit"]:hover{
+
+form>input[type="submit"]:hover {
     background-color: hsl(285, 42%, 39%);
-    }
+}
