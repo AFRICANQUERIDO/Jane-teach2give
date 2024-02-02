@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(252, 5%, 80%);
+
+}
+
+.navbar {
+    background-color: hsl(285, 42%, 39%);
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50%;
+}
+
+
+.navbar>h1 {
+    color: white;
+}
+
+/* Style the search box inside the navigation bar */
+#navbar input[type=text] {
+    /* float: right; */
+    padding: 6px;
+    border: none;
+    width: 20px;
+    /* margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px; */
+}
+
+ion-icon {
+    color: white;
+    background-color: black;
+}
+
+.search-div {
+    background-color: white;
+    display: flex;
+    width: 10%;
+    height: 40%;
+}
+
+.container {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-container {
+    width: 40%;
+    height: 90%;
+    background-color: white;
+    display: none;
+    /* display: grid;
+    grid-template-columns: repeat(2); */
+}
+.note{
+    width: 20%;
+    height: 30%;
+}
+.note-title {
+    color: hsl(214, 8%, 62%);
+}
+
+.note>p {
+    color: hsl(214, 8%, 62%);
+}
+
+#add-btn {
+    background-color: hsl(285, 42%, 39%);
+    border-radius: 50%;
+}
+
+.new-note {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    /* border: 1px solid red; */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid aqua; */
+    padding: 20px;
+}
+
+form>input[type="text"] {
+    width: 30vw;
+    height: 40vh;
+    /* padding: 20px; */
+}
+
+form>input[type="submit"] {
+    width: 70px;
+    background-color: hsl(214, 8%, 62%);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin: 20px;
+    height: 40px;
+}
+form>input[type="submit"]:hover{
+    background-color: hsl(285, 42%, 39%);
+    }
