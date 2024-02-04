@@ -21,9 +21,9 @@ noteForm.addEventListener('submit', (e) => {
         saveToLocalStorage();
         displayNotes();
     }
-    // } else {
-    //     window.confirm("Please fill all the fields")
-    // }
+    else {
+        window.alert("Please fill all the fields");
+    }
     nameItem.value = "";
     description.value = "";
     newNote.style.display = "none";
@@ -31,7 +31,7 @@ noteForm.addEventListener('submit', (e) => {
 // Toggle using submit btn
 if (newNote && noteContainer) {
     submitBtn.addEventListener("click", () => {
-        window.alert("Please fills all finds");
+        window.alert("Note saved");
         // Toggle the visibility of newNote and noteContainer
         if (newNote.style.display === "flex") {
             newNote.style.display = "none";
@@ -92,12 +92,8 @@ function displayNotes() {
         // let description = document.createElement("td") as HTMLTableCellElement;
         // description.textContent = note.description;
         let viewAction = document.createElement("button");
+        viewAction.className = "viewBtn";
         viewAction.textContent = "View";
-        viewAction.style.color = "white";
-        viewAction.style.backgroundColor = "purple";
-        viewAction.style.border = "none";
-        viewAction.style.width = "20%";
-        viewAction.style.height = "20%";
         viewAction.addEventListener("click", () => {
             window.location.href = `note.html?id=${note.id}`;
         });
@@ -107,11 +103,35 @@ function displayNotes() {
         notetable.appendChild(viewAction);
         noTe.appendChild(notetable);
         noteContainer.appendChild(noTe);
-        // notetable.textContent=""
     });
     saveToLocalStorage();
 }
 document.addEventListener("DOMContentLoaded", () => {
     loadNotesFromLocalStorage();
     displayNotes();
+    let searchArea = document.getElementById("searchForm");
+    searchArea.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let searchInput = document.getElementById('searchInput');
+        let searchWord = searchInput.value.toLowerCase;
+        console.log('search for:', searchWord);
+        filterNote("searchWord");
+        searchInput.value = "";
+    });
 });
+function filterNote(searchWord) {
+    const storedNotes = localStorage.getItem("notes");
+    if (storedNotes) {
+        const notes = JSON.parse(storedNotes);
+        // Filter notes based on the search term
+        const filteredNotes = notes.filter((note) => {
+            const titleMatch = note.nameItem.toLowerCase().includes(searchWord);
+            const contentMatch = note.description.toLowerCase().includes(searchWord);
+            return titleMatch || contentMatch;
+        });
+        displayFilteredNotes(filteredNotes);
+    }
+}
+function displayFilteredNotes(filteredNotes) {
+    console.log("note exists", filteredNotes);
+}

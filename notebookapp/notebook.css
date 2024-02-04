@@ -75,7 +75,7 @@ body {
 .note-container {
     width: 60%;
     /* background-color: white; */
-    display: none;
+    display: flex;
     /* display: grid;
     grid-template-columns: auto auto auto;
     gap: 15px;
@@ -267,6 +267,7 @@ form {
     flex-direction: column;
     /* border: 1px solid aqua; */
     padding: 20px;
+    /* display: none; */
 }
 
 form>textarea {
@@ -292,4 +293,13 @@ form>input[type="submit"] {
 
 form>input[type="submit"]:hover {
     background-color: hsl(285, 42%, 39%);
+}
+
+.viewBtn{
+color: white;
+background-color: purple;
+border: none;
+height:20px;
+width: 40px;
+margin: 8px;
 }
