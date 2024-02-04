@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOTEBOOK</title>
+    <link rel="stylesheet" href="notebook.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>NOTE</h1>
+        <div class="search-div">
+            <form action="">
+                <div class="search-container">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="new-note">
+            <h3>NEW NOTE</h3>
+            <form id="note-form">
+                <input type="text" id="note-title" placeholder="Note Title" maxlength="20"/>
+                <textarea id="note-area" placeholder="What's on your mind?"></textarea>
+                <input type="submit" value="Save" id="note-save" />
+            </form>
+        </div>
+        
+        <div class="note-container" id="note-container">
+            <!-- Notes will be dynamically added here -->
+<table class="note">
+    <tr class="tableheading">
+        <th>No.</th>
+        <th>Title</th>
+        <th>Action</th>
+    </tr>
+
+</table>
+            <!-- <div class="note">
+                <h3 class="note-title">Health</h3>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div> -->
+        </div>
+        <ion-icon name="add-outline" id="add-btn"></ion-icon>
+
+    </div>
+
+    <script src="../dist/notebook.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</html>
