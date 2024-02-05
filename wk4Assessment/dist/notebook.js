@@ -5,6 +5,7 @@ let noteContainer = document.querySelector(".note-container");
 let nameItem = document.querySelector("#note-title");
 let description = document.querySelector("#note-area");
 let noteForm = document.querySelector('#note-form');
+let noTe = document.querySelector(".note");
 let notes = [];
 // Handle form submission
 noteForm.addEventListener('submit', (e) => {
@@ -21,12 +22,16 @@ noteForm.addEventListener('submit', (e) => {
         displayNotes();
     }
     else {
-        alert("Please fill all the fields");
+        window.alert("Please fill all the fields");
     }
+    nameItem.value = "";
+    description.value = "";
+    newNote.style.display = "none";
 });
 // Toggle using submit btn
-if (submitBtn && newNote && noteContainer) {
+if (newNote && noteContainer) {
     submitBtn.addEventListener("click", () => {
+        window.alert("Note saved");
         // Toggle the visibility of newNote and noteContainer
         if (newNote.style.display === "flex") {
             newNote.style.display = "none";
@@ -41,7 +46,7 @@ if (submitBtn && newNote && noteContainer) {
 let addBtn = document.querySelector("#add-btn");
 if (addBtn && newNote && noteContainer) {
     addBtn.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
         // Toggle the visibility of newNote and noteContainer
         if (newNote.style.display === "none") {
             newNote.style.display = "flex";
@@ -77,56 +82,57 @@ function displayNotes() {
         console.error("No items container found");
         return;
     }
+    noTe.textContent = "";
     notes.forEach((note, index) => {
-        let noteDiv = document.createElement('div');
-        noteDiv.className = "note";
-        noteDiv.innerHTML = `
-        <div class="note-title">
-        <h1>${note.nameItem}</h1>
-        </div>
-        <div class="note-content">
-            <p>${note.description}.</p>
-            </div>
-            <div class="actions">
-                <button class="edit-btn" data-index="${index}">Edit</button>
-                <button class="delete-btn" data-index="${index}">Delete</button>
-            </div>
-            
-        `;
-        noteContainer.appendChild(noteDiv);
+        let notetable = document.createElement("tr");
+        notetable.className = "noteTable";
+        let numbering = document.createElement("td");
+        numbering.textContent = `${index + 1}`;
+        let nameItem = document.createElement("td");
+        nameItem.textContent = note.nameItem;
+        // let description = document.createElement("td") as HTMLTableCellElement;
+        // description.textContent = note.description;
+        let viewAction = document.createElement("button");
+        viewAction.className = "viewBtn";
+        viewAction.textContent = "View";
+        viewAction.addEventListener("click", () => {
+            window.location.href = `note.html?id=${note.id}`;
+        });
+        notetable.appendChild(numbering);
+        notetable.appendChild(nameItem);
+        // notetable.appendChild(description)
+        notetable.appendChild(viewAction);
+        noTe.appendChild(notetable);
+        noteContainer.appendChild(noTe);
     });
-}
-// Event delegation for edit and delete buttons
-noteContainer.addEventListener("click", (event) => {
-    const target = event.target;
-    if (target.classList.contains("edit-btn")) {
-        const index = parseInt(target.dataset.index || "0", 10);
-        updateNote(index);
-    }
-    else if (target.classList.contains("delete-btn")) {
-        const index = parseInt(target.dataset.index || "0", 10);
-        deleteNote(index);
-    }
-});
-function deleteNote(index) {
-    let confirmDelete = window.confirm("Are you sure you want to delete this task?");
-    if (confirmDelete) {
-        deleteNote(index);
-    }
-    notes.splice(index, 1);
-    displayNotes();
     saveToLocalStorage();
-}
-function updateNote(index) {
-    currentindex = index;
-    newNote.style.display = "flex";
-    let selectedItem = notes[index];
-    if (nameItem && description) {
-        nameItem.value = selectedItem.nameItem;
-        description.value = selectedItem.description;
-    }
 }
 document.addEventListener("DOMContentLoaded", () => {
     loadNotesFromLocalStorage();
     displayNotes();
+    let searchArea = document.getElementById("searchForm");
+    searchArea.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let searchInput = document.getElementById('searchInput');
+        let searchWord = searchInput.value.toLowerCase;
+        console.log('search for:', searchWord);
+        filterNote("searchWord");
+        searchInput.value = "";
+    });
 });
+function filterNote(searchWord) {
+    const storedNotes = localStorage.getItem("notes");
+    if (storedNotes) {
+        const notes = JSON.parse(storedNotes);
+        // Filtering notes based on the search term
+        const filteredNotes = notes.filter((note) => {
+            const titleMatch = note.nameItem.toLowerCase().includes(searchWord);
+            const contentMatch = note.description.toLowerCase().includes(searchWord);
+            return titleMatch || contentMatch;
+        });
+        displayFilteredNotes(filteredNotes);
+    }
+}
+function displayFilteredNotes(filteredNotes) {
+    console.log("note exists", filteredNotes);
+}
