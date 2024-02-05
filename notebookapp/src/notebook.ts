@@ -99,7 +99,7 @@ function displayNotes() {
         console.error("No items container found");
         return;
     }
-
+noTe.textContent =""
     notes.forEach((note: Note, index: number) => {
         let notetable = document.createElement("tr") as HTMLTableRowElement;
         notetable.className = "noteTable";
